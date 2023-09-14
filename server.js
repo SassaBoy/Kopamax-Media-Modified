@@ -20,22 +20,22 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-app.use('/settings', (req, res) => {
+app.get('/settings', (req, res) => {
   // Render the "partners.ejs" file
   res.render('settings');
 });
 
 
-app.use('/individual', (req, res)=>{
+app.get('/individual', (req, res)=>{
 res.render('individual');
 });
 
-app.use('/admin', (req, res) => {
+app.get('/admin', (req, res) => {
   res.render('admin'); // Render your dashboard.ejs template here
 });
 
 // GET route for managing partners
-app.use('/partnersmanagement', (req, res) => {
+app.get('/partnersmanagement', (req, res) => {
   res.render('Manage'); // Render your Manage.ejs template here
 });
 
@@ -44,22 +44,22 @@ app.use('/partnersmanagement', (req, res) => {
 // });
 
 // GET route for managing work
-app.use('/workmanagement', (req, res) => {
+app.get('/workmanagement', (req, res) => {
   res.render('Work'); // Render your Work.ejs template here
 });
 
 
-app.use('/blog', (req, res)=>{
+app.get('/blog', (req, res)=>{
   res.render('Blog');
 });
 
-app.use('/privacy', (req, res)=>{
-  res.render('Privacy');
+app.get('/privacy', (req, res)=>{
+  res.render('privacy');
 });
-app.use('/terms', (req, res)=>{
+app.get('/terms', (req, res)=>{
   res.render('Terms');
 });
-app.use('/about', (req, res)=>{
+app.get('/about', (req, res)=>{
   res.render('about');
 })
 

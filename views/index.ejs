@@ -14,6 +14,7 @@
   <!-- Favicons -->
   <!-- <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
+  <link rel="icon" type="image/png" href="/img/android.png">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -28,10 +29,10 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
 
   <!-- Template Main CSS File -->
@@ -74,14 +75,14 @@
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto" href="/blog">Blog</a></li>
+        
           <li><a class="nav-link scrollto " href="#portfolio">Work</a></li>
           <li><a class="nav-link scrollto " href="/partners">Partners</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li><a class="nav-link scrollto " href="#testimonials">Testimonials</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
         </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
+        <i class="bi bi-list mobile-nav-toggle" style="background-color: #fe4066;"></i>
       </nav><!-- .navbar -->
 
     </div>
@@ -529,49 +530,39 @@
           </div>
 
         </div>
-        <section id="testimonials" class="testimonials">
+      <section id="testimonials" class="testimonials">
         <div class="section-title" data-aos="zoom-in">
           <h2 style="margin-top: 45px;">Testimonials</h2>
 
         </div>
-        <div class="container" style="margin-right: 20%; margin-left: 25%;">
-          <div class="row">
-              <div class="col-md-6">
-                  <div id="testimonial-slider" class="owl-carousel">
-                      <div class="testimonial">
-                          <p class="description">
-                              "Kopamax Media has got the best sevices ever  "
-                          </p>
-                          <div class="pic">
-                              <img src="/img/human.jpg">
-                          </div>
-                          <h3 class="title">Deon Gewers</h3>
-                          <span class="post">Student</span>
-                      </div>
-                      <div class="testimonial">
-                        <p class="description">
-                            "There is nothing you can possibly do to stop the best "
-                        </p>
-                        <div class="pic">
-                            <img src="/img/human.jpg">
-                        </div>
-                        <h3 class="title">Nashandi Ndinelago</h3>
-                        <span class="post">Lecturer</span>
-                    </div>
-       
-                      <div class="testimonial">
-                          <p class="description">
-                              "The best service I have ever recieved in my life. It was very fun working with like-minded and talented people"
-                          </p>
-                          <div class="pic">
-                              <img src="/img/human.jpg">
-                          </div>
-                          <h3 class="title">Diedricks Sinvula</h3>
-                          <span class="post">MTC manager</span>
-                      </div>
-                  </div>
+        <div class="testimonial-slider">
+          <div class="testimonial">
+              <img src="/img/deon.jpg" alt="User 1">
+              <div class="testimonial-content">
+                  <p>Love this guys.</p>
+                  <h3>Deon Gewers</h3>
+                  <span>CEO, Company XYZ</span>
               </div>
           </div>
+          <div class="testimonial">
+              <img src="/img/deon.jpg" alt="User 2">
+              <div class="testimonial-content">
+                  <p>Keep up the stunning designs.</p>
+                  <h3>Diedricks Sinvula</h3>
+                  <span>CTO, Company ABC</span>
+              </div>
+          </div>
+
+          <div class="testimonial">
+            <img src="/img/deon.jpg" alt="User 2">
+            <div class="testimonial-content">
+                <p>Will definetely come back.</p>
+                <h3>Thomas Shangula</h3>
+                <span>Radio Presenter</span>
+            </div>
+        </div>
+
+      
       </div>
       
       </section>
@@ -721,6 +712,35 @@
 </script>
 
   <script src="/js/main.js"></script>
+
+  <script>
+    const testimonials = document.querySelectorAll('.testimonial');
+    let currentTestimonial = 0;
+
+    function showTestimonial(index) {
+        testimonials.forEach((testimonial, i) => {
+            if (i === index) {
+                testimonial.style.display = 'block';
+            } else {
+                testimonial.style.display = 'none';
+            }
+        });
+    }
+
+    function nextTestimonial() {
+        currentTestimonial++;
+        if (currentTestimonial >= testimonials.length) {
+            currentTestimonial = 0;
+        }
+        showTestimonial(currentTestimonial);
+    }
+
+    // Automatically switch testimonials every 5 seconds
+    setInterval(nextTestimonial, 5000);
+
+    // Show the initial testimonial
+    showTestimonial(currentTestimonial);
+</script>
 
 </body>
 
